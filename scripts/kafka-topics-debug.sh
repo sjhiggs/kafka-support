@@ -4,7 +4,7 @@
 #oc exec -i POD_NAME -- bash -s -- --log-level=WARN --topic=MYTOPIC < kafka-topics-debug.sh
 
 readonly USAGE="
-Usage: kafka-debug-topics.sh [options]
+Usage: kafka-topics-debug.sh [options]
 
 Required:
   --log-level=<string>          log level for client
