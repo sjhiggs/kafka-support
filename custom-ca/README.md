@@ -2,6 +2,7 @@
 
 Create a CA, issuing CA, issuing (clients) CA, and secrets for Kafka cluster:
 
+~~~
 ./init.sh - initialize directories
 ./ca.sh - create the root CA
 ./ca-issuing.sh - create the issuing CA
@@ -11,4 +12,4 @@ Create a CA, issuing CA, issuing (clients) CA, and secrets for Kafka cluster:
 ./create-secrets.sh - generate openshift secrets for demo kafka yaml
 ./export.sh - copy certs to the /tmp directory for usage with demo scripts
 ./clean.sh - delete all ca's, certs, keys, etc.
-
+~~~
