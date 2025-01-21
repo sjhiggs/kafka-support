@@ -1,0 +1,61 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: my 
+spec:
+  kafka:
+    authorization:
+      type: simple
+    config:
+      offsets.topic.replication.factor: 1
+      transaction.state.log.replication.factor: 1
+      transaction.state.log.min.isr: 1
+      default.replication.factor: 1
+      min.insync.replicas: 1
+      log.roll.ms: 60000
+    storage:
+      type: ephemeral
+    listeners:
+      - name: plain
+        port: 9092
+        type: internal 
+        tls: false
+      - name: twowayssl2
+        port: 9095
+        type: route
+        tls: true
+        authentication:
+          type: tls
+        configuration:
+          brokerCertChainAndKey:
+            secretName: my-server-cert
+            certificate: cert
+            key: key
+    replicas: 1
+  entityOperator:
+    topicOperator:
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: "500m"
+        limits:
+          memory: 512Mi
+    userOperator:
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: "500m"
+        limits:
+          memory: 512Mi
+  zookeeper:
+    storage:
+      type: ephemeral
+    replicas: 3
+  clusterCa:
+    renewalDays: 1
+    validityDays: 2
+    generateCertificateAuthority: true
+  clientsCa:
+    generateCertificateAuthority: false
+
+
