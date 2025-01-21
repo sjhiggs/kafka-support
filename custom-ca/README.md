@@ -4,6 +4,7 @@ Create a CA, issuing CA, issuing (clients) CA, and secrets for Kafka cluster:
 
 ~~~
 ./init.sh - initialize directories
+./env - edit this for your environment
 ./ca.sh - create the root CA
 ./ca-issuing.sh - create the issuing CA
 ./ca-issuing-clients.sh - create another issuing CA for client certs
