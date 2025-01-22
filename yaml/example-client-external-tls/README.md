@@ -22,7 +22,7 @@ Creates:
 
    * Root CA
    * Issuing CA (for listener certificate)
-   * A second Issuing cA (fro client certificates)
+   * A second Issuing CA (for client certificates)
    * Server certificate for the Kafka listener
    * Client certificate for CN=myuser, client certificate authentication to Broker
 
