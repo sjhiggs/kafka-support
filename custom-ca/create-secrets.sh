@@ -8,8 +8,8 @@ oc delete secret/my-clients-ca
 oc delete secret/my-server-cert
 
 oc create secret generic  my-clients-ca-cert --from-file=ca.crt=$ca_issuing_clients_dir/$ca_name.issuing.pem
-#oc create secret generic  my-clients-ca --from-literal=ca.key="" 
-oc create secret generic  my-clients-ca --from-file=ca.key=$ca_issuing_clients_dir/$ca_name.issuing.key
+oc create secret generic  my-clients-ca --from-literal=ca.key="" 
+#oc create secret generic  my-clients-ca --from-file=ca.key=$ca_issuing_clients_dir/$ca_name.issuing.key
 
 openssl rsa -in $certs_dir/server.key -out $certs_dir/server.key.decrypted
 oc create secret generic  my-server-cert --from-file=cert=$certs_dir/server.pem --from-file=key=$certs_dir/server.key.decrypted
