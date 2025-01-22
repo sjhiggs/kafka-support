@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
 source ./env
 
 oc delete secret/my-clients-ca-cert

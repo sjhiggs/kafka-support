@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
 source ./env
 
 cat $certs_dir/client.key.decrypted $certs_dir/client.pem > /tmp/client.pem 

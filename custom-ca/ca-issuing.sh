@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 source ./env
 
 openssl genpkey -algorithm rsa -out $ca_issuing_dir/$ca_name.issuing.key -AES-256-CBC -pkeyopt rsa_keygen_bits:$ca_key_bits
